@@ -1,5 +1,5 @@
 #Global
-project_prefix = "Project prefix, this will be applied as a prefix to all assets created"
+project_prefix = "OneWAF"
 resource_owner = "You"
 
 #AWS INFRA
