@@ -1,10 +1,10 @@
 #XC Global
-api_url = "https://<Your Tenant>.console.ves.volterra.io/api"
-xc_tenant = "Your tenant name"
-xc_namespace = "Your XC namespace"
+api_url = "https://treino.console.ves.volterra.io/api"
+xc_tenant = "treino"
+xc_namespace = "automation-apisec"
 
 #XC LB
-app_domain = "Your App Domain"
+app_domain = "onewaf.f5-hyd-demo.com"
 
 #XC WAF
 xc_waf_blocking = true
