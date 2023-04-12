@@ -1,6 +1,6 @@
 #Global
 project_prefix = "OneWAF"
-resource_owner = "You"
+resource_owner = "janibasha"
 
 #AWS INFRA
 aws_region     = "us-east-1"
