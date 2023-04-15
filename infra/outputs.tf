@@ -90,6 +90,12 @@ output "management_sg_id" {
 output "internal_sg_id" {
   value       = aws_security_group.internal.id
 }
+output "nap" {
+  value = var.nap
+}
+output "nic" {
+  value = var.nic
+}
 
 
 
