@@ -3,6 +3,7 @@ data "tfe_outputs" "infra" {
   workspace = "infra"
 }
 data "tfe_outputs" "bigip" {
+  count = data.tfe_outputs.infra.values.bigip ? 1 : 0
   organization = var.tf_cloud_organization
   workspace = "bigip"
 }
