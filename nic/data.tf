@@ -15,3 +15,9 @@ data "kubernetes_service_v1" "nginx-service" {
     namespace = helm_release.nginx-plus-ingress.namespace
   }
 }
+data "kubernetes_service" "nginx-service" {
+  metadata {
+    name = format("%s-%s", helm_release.nginx-plus-ingress.name, helm_release.nginx-plus-ingress.chart)
+    namespace = helm_release.nginx-plus-ingress.namespace
+  }
+}
