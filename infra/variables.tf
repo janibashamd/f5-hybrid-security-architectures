@@ -63,3 +63,6 @@ variable "nap" {
 variable "nic" {
   type = bool
 }
+variable "bigip" {
+  type = bool
+}
