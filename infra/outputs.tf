@@ -97,7 +97,7 @@ output "nic" {
   value = var.nic
 }
 output "bigip" {
-  value = var.nic
+  value = var.bigip
 }
 
 
