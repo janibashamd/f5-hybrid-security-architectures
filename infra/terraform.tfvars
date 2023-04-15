@@ -1,5 +1,5 @@
 #Global
-project_prefix = "OneWAF"
+project_prefix = "onewaf"
 resource_owner = "janibasha"
 
 #AWS INFRA
