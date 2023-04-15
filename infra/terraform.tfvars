@@ -8,3 +8,4 @@ azs           = ["ap-south-1a", "ap-south-1b"]
 
 nic = true
 nap = false
+bigip = false
