@@ -7,12 +7,12 @@ data "tfe_outputs" "eks" {
   workspace = "eks"
 }
 data "tfe_outputs" "nap" {
-  count = nap ? 1 : 0
+  count = data.tfe_outputs.infra.values.nap ? 1 : 0
   organization = var.tf_cloud_organization
   workspace = "nap"
 }
 data "tfe_outputs" "nic" {
-  count = nic ? 1 : 0
+  count = data.tfe_outputs.infra.values.nic ? 1 : 0
   organization = var.tf_cloud_organization
   workspace = "nic"
 }
