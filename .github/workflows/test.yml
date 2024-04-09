@@ -24,4 +24,4 @@ jobs:
 
       - name: Setup Terraform Backend
         id: backend
-        run: echo
+        run: echo ${{secrets.NGINX_JWT}} 
