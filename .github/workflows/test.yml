@@ -1,0 +1,27 @@
+name: "F5XC APIP + NIC Code Debug"
+
+on:
+  push:
+    branches:
+      - test
+  pull_request:
+
+jobs:
+  terraform_nic:
+    name: "NGINX Ingress Controller"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./nic
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+      - name: Setup Terraform Backend
+        id: backend
+        run: echo ${{secrets.NGINX_JWT}} | base64 -d > nginx-repo.jwt
