@@ -1,13 +1,15 @@
 #Global
-project_prefix = "Project prefix, this will be applied as a prefix to all assets created"
-resource_owner = "You"
+project_prefix = "llm"
+resource_owner = "janibasha"
 
 #AWS INFRA
-aws_region     = "us-east-1"
-azs           = ["us-east-1a", "us-east-1b"]
+aws_region     = "ap-south-1"
+azs           = ["ap-south-1a", "ap-south-1b"]
 
 #Assets
 nic = false
-nap = false
+nap = true
 bigip = false
 bigip-cis = false
+aks-cluster  = false
+azure-vm  = false
