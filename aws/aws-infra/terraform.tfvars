@@ -7,7 +7,7 @@ aws_region     = "ap-south-1"
 azs           = ["ap-south-1a", "ap-south-1b"]
 
 #Assets
-nic = true
+nic = false
 nap = true
 bigip = false
 bigip-cis = false
