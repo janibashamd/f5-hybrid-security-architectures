@@ -24,11 +24,11 @@ resource "aws_eks_node_group" "private-node-group-1-tf" {
   node_group_name = format("%s-private-ng-1-%s", local.project_prefix, local.build_suffix)
   node_role_arn  = aws_iam_role.workernodes.arn
   subnet_ids =  [for i in aws_subnet.eks-internal: i.id]
-  instance_types = ["t3.small"]
+  instance_types = ["t3.xlarge"]
  
   scaling_config {
-   desired_size = 2
-   max_size   = 3
+   desired_size = 1
+   max_size   = 1
    min_size   = 1
   }
 
