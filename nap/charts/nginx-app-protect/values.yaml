@@ -1,13 +1,13 @@
 ---
 controller:
   appprotect:
-    enable: false
+    enable: true
   appprotectdos:
-    enable: false
+    enable: true
   enableSnippets: true
   image:
     repository: private-registry.nginx.com/nginx-ic-nap-dos/nginx-plus-ingress
-    tag: "3.6.1"
+    tag: latest
     pullPolicy: Always
   nginxplus: true
   nginxStatus:
@@ -18,4 +18,4 @@ controller:
   serviceAccount:
     imagePullSecretName: regcred 
   prometheus:
-    create: false
+    create: true
