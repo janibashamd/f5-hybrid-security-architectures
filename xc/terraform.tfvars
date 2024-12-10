@@ -4,7 +4,7 @@ xc_tenant = "treino-ufahspac"
 xc_namespace = "default"
 
 #XC LB
-app_domain = "jbonewaf.f5-hyd-demo.com"
+app_domain = "jbonewaf.f5-hyd-xcdemo.com"
 
 #XC WAF
 xc_waf_blocking = true
