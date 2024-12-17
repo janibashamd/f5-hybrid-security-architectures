@@ -4,20 +4,22 @@ xc_tenant = "treino-ufahspac"
 xc_namespace = "default"
 
 #XC LB
-app_domain = "jbhybrid2.f5-hyd-xcdemo.com"
+app_domain = "jbhybrid5.f5-hyd-xcdemo.com"
 
 #XC WAF
 xc_waf_blocking = true
 
+# XC Data Guard
+xc_data_guard = false
 
 #XC AI/ML Settings for MUD, APIP - NOTE: Only set if using AI/ML settings from the shared namespace
 xc_app_type = []
 xc_multi_lb = false
 
 #XC API Protection and Discovery
-xc_api_disc = false
-xc_api_pro = false
-xc_api_spec = []
+xc_api_disc = true
+xc_api_pro = true
+xc_api_spec = ["https://treino.console.ves.volterra.io/api/object_store/namespaces/default/stored_objects/swagger/brewz-oas/v1-24-10-14"]
 #Enable API schema validation
 xc_api_val = false
 #Enable API schema validation on all endpoints
@@ -44,3 +46,19 @@ xc_ddos_pro = false
 
 #XC Malicious User Detection
 xc_mud = false
+
+# pool and LB inputs
+k8s_pool = false
+serviceName = "k8s service name"
+serviceport = "k8s service port" 
+advertise_sites = false
+http_only = false
+xc_delegation = false
+eks_ce_site = false
+
+# infra (Needed values: aws-infra, azure-infra, gcp-infra)
+aws   = ""
+azure = ""
+gcp   = ""
+
+hybrid_genai = false
