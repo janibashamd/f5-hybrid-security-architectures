@@ -22,6 +22,14 @@ jobs:
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+      - name: Pull latest code
+        run: |
+          git config --global user.email @${{ github.actor }}
+          git config --global user.name @${{ github.actor }}
+          git remote add upstream https://github.com/f5devcentral/f5-hybrid-security-architectures.git
+          git fetch upstream
+          git merge upstream/main --strategy-option theirs --allow-unrelated-histories
+          
       - name: Setup Terraform Backend
         id: backend
         run: |
@@ -96,6 +104,14 @@ jobs:
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+      - name: Pull latest code
+        run: |
+          git config --global user.email @${{ github.actor }}
+          git config --global user.name @${{ github.actor }}
+          git remote add upstream https://github.com/f5devcentral/f5-hybrid-security-architectures.git
+          git fetch upstream
+          git merge upstream/main --strategy-option theirs --allow-unrelated-histories
+          
       - name: Setup Terraform Backend
         id: backend
         run: |
@@ -170,6 +186,14 @@ jobs:
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+      - name: Pull latest code
+        run: |
+          git config --global user.email @${{ github.actor }}
+          git config --global user.name @${{ github.actor }}
+          git remote add upstream https://github.com/f5devcentral/f5-hybrid-security-architectures.git
+          git fetch upstream
+          git merge upstream/main --strategy-option theirs --allow-unrelated-histories
+          
       - name: Setup Terraform Backend
         id: backend
         run: |
@@ -244,6 +268,14 @@ jobs:
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+      - name: Pull latest code
+        run: |
+          git config --global user.email @${{ github.actor }}
+          git config --global user.name @${{ github.actor }}
+          git remote add upstream https://github.com/f5devcentral/f5-hybrid-security-architectures.git
+          git fetch upstream
+          git merge upstream/main --strategy-option theirs --allow-unrelated-histories
+          
       - name: Setup Terraform Backend
         id: backend
         run: |
@@ -316,6 +348,15 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+      - name: Pull latest code
+        run: |
+          git config --global user.email @${{ github.actor }}
+          git config --global user.name @${{ github.actor }}
+          git remote add upstream https://github.com/f5devcentral/f5-hybrid-security-architectures.git
+          git fetch upstream
+          git merge upstream/main --strategy-option theirs --allow-unrelated-histories
+          
       - name: Setup Terraform Backend
         id: backend
         run: |
