@@ -5,6 +5,7 @@ on:
     branches:
       - deploy-xc-nap
   pull_request:
+  workflow_dispatch:
 
 jobs:
   terraform_infra:
@@ -77,7 +78,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-xc-nap' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
   terraform_eks:
@@ -151,7 +152,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-xc-nap' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
   terraform_nap:
@@ -225,7 +226,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-xc-nap' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
   terraform_arcadia:
@@ -298,7 +299,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-xc-nap' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
   terraform_xc:
@@ -371,5 +372,5 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-xc-nap' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
