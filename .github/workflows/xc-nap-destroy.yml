@@ -5,9 +5,9 @@ on:
     branches:
       - destroy-xc-nap
   pull_request:
+  workflow_dispatch:
 
 jobs:
-
   terraform_xc:
     name: "F5XC WAAP"
     runs-on: ubuntu-latest
@@ -78,7 +78,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-xc-nap' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
   
   terraform_arcadia:
@@ -152,7 +152,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-xc-nap' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
 
   terraform_nap:
@@ -227,7 +227,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-xc-nap' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
 
   terraform_eks:
@@ -302,7 +302,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-xc-nap' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
 
   terraform_infra:
@@ -377,11 +377,5 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-xc-nap' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-xc-nap' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
-
-
-
-
-
-
