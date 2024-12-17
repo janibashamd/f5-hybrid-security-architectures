@@ -5,6 +5,7 @@ on:
     branches:
       - deploy-hybrid-genai
   pull_request:
+  workflow_dispatch:
 
 jobs:
   terraform_aws_infra:
@@ -77,7 +78,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
   terraform_gcp_infra:
@@ -150,7 +151,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
   terraform_eks:
@@ -224,7 +225,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
   terraform_gke:
@@ -298,7 +299,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
 
@@ -373,7 +374,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
   terraform_app:
@@ -447,7 +448,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
   terraform_eks_ce:
@@ -561,7 +562,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
   terraform_gke_ce:
@@ -675,7 +676,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
 
   terraform_xc:
@@ -750,7 +751,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform apply -auto-approve -input=false
         env:
           TF_VAR_eks_site_name: ${{ secrets.TF_VAR_EKS_SITE_NAME }}
@@ -828,6 +829,6 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/deploy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/deploy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         #run: terraform apply -auto-approve -input=false  
         run: terraform apply -replace="kubectl_manifest.lb" -replace null_resource.lb-wait -auto-approve
