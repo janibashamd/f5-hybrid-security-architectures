@@ -17,3 +17,5 @@ xc_ddos_pro = true
 
 #XC Malicious User Detection
 xc_mud = false
+
+xc_app_type = []
