@@ -1,5 +1,5 @@
 #Global
-project_prefix = "llm"
+project_prefix = "jani-hyhbrid2"
 resource_owner = "janibasha"
 
 #AWS INFRA
