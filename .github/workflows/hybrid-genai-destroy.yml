@@ -5,6 +5,7 @@ on:
     branches:
       - destroy-hybrid-genai
   pull_request:
+  workflow_dispatch:
 
 jobs:
 
@@ -79,7 +80,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
 
   terraform_xc:
@@ -154,7 +155,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
         env:
           TF_VAR_site_name: ${{ secrets.TF_VAR_site_name }}
@@ -271,7 +272,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
 
   terraform_gke_ce:
@@ -386,7 +387,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
 
   terraform_llm:
@@ -461,7 +462,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
 
   terraform_app:
@@ -536,7 +537,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
 
 
@@ -611,7 +612,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
 
   terraform_gke:
@@ -685,7 +686,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
 
 
@@ -760,7 +761,7 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false
 
   terraform_gcp_infra:
@@ -835,5 +836,5 @@ jobs:
         run: exit 1
 
       - name: Terraform Destroy
-        if: github.ref == 'refs/heads/destroy-hybrid-genai' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/destroy-hybrid-genai' && ( github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         run: terraform destroy -auto-approve -input=false        
