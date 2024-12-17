@@ -9,6 +9,7 @@ app_domain = "hybrid1.f5-hyd-xcdemo.com"
 #XC WAF
 xc_waf_blocking = true
 
+
 #XC AI/ML Settings for MUD, APIP - NOTE: Only set if using AI/ML settings from the shared namespace
 xc_app_type = []
 xc_multi_lb = false
