@@ -3,8 +3,8 @@ name: "Deploy and Destroy Hybrid Workflows"
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 1 * * 0'
-    - cron: '0 2 * * 0'
+    - cron: '0 11 * * 3'
+    - cron: '0 12 * * 3'
     
     - cron: '0 3 * * 0'
     - cron: '0 4 * * 0'
@@ -12,11 +12,11 @@ on:
     - cron: '0 5 * * 0'
     - cron: '0 6 * * 0'
     
-    - cron: '0 7 * * 0'
-    - cron: '0 8 * * 0'
+    - cron: '0 13 * * 3'
+    - cron: '0 14 * * 3'
     
-    - cron: '0 9 * * 0'
-    - cron: '0 10 * * 0'
+    - cron: '0 16 * * 3'
+    - cron: '0 17 * * 3'
     
     - cron: '0 11 * * 0'
     - cron: '0 13 * * 0'
@@ -33,14 +33,14 @@ jobs:
       # Deploy first hybrid use case
       - name: Trigger Deploy workflow1
         run: gh workflow run xc-bigip-apply.yml --ref deploy-xc-bigip
-        if: github.event.schedule == '0 1 * * 0'
+        if: github.event.schedule == '0 11 * * 3'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
 
       # Destroy first hybrid use case
       - name: Trigger Destroy workflow1
         run: gh workflow run xc-bigip-destroy.yml --ref destroy-xc-bigip
-        if: github.event.schedule == '0 2 * * 0'
+        if: github.event.schedule == '0 12 * * 3'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -75,28 +75,28 @@ jobs:
       # Deploy fourth hybrid use case
       - name: Trigger Deploy workflow4
         run: gh workflow run xc-bigip-apply.yml --ref deploy-xc-bigip
-        if: github.event.schedule == '0 7 * * 0'
+        if: github.event.schedule == '0 13 * * 3'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
 
       # Destroy fourth hybrid use case
       - name: Trigger Destroy workflow4
         run: gh workflow run xc-bigip-destroy.yml --ref destroy-xc-bigip
-        if: github.event.schedule == '0 8 * * 0'
+        if: github.event.schedule == '0 14 * * 3'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Deploy fifth hybrid use case
       - name: Trigger Deploy workflow5
         run: gh workflow run xcbn-cis-apply.yml --ref deploy-xcbn-cis
-        if: github.event.schedule == '0 9 * * 0'
+        if: github.event.schedule == '0 16 * * 3'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
 
       # Destroy fifth hybrid use case
       - name: Trigger Destroy workflow5
         run: gh workflow run xcbn-cis-destroy.yml --ref destroy-xcbn-cis
-        if: github.event.schedule == '0 10 * * 0'
+        if: github.event.schedule == '0 17 * * 3'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
