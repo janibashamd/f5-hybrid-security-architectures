@@ -35,6 +35,14 @@ jobs:
             }
           }
           EOF
+
+      - name: Pull latest code
+        run: |
+          git config --global user.email @${{ github.actor }}
+          git config --global user.name @${{ github.actor }}
+          git remote add upstream https://github.com/f5devcentral/f5-hybrid-security-architectures.git
+          git fetch upstream
+          git merge upstream/main --strategy-option theirs --allow-unrelated-histories
           
       - name: Terraform Init
         id: init
@@ -110,6 +118,14 @@ jobs:
           }
           EOF
 
+      - name: Pull latest code
+        run: |
+          git config --global user.email @${{ github.actor }}
+          git config --global user.name @${{ github.actor }}
+          git remote add upstream https://github.com/f5devcentral/f5-hybrid-security-architectures.git
+          git fetch upstream
+          git merge upstream/main --strategy-option theirs --allow-unrelated-histories
+          
       - name: Terraform Init
         id: init
         run: terraform init
@@ -184,6 +200,14 @@ jobs:
           }
           EOF
 
+      - name: Pull latest code
+        run: |
+          git config --global user.email @${{ github.actor }}
+          git config --global user.name @${{ github.actor }}
+          git remote add upstream https://github.com/f5devcentral/f5-hybrid-security-architectures.git
+          git fetch upstream
+          git merge upstream/main --strategy-option theirs --allow-unrelated-histories
+          
       - name: Terraform Init
         id: init
         run: terraform init
@@ -258,6 +282,14 @@ jobs:
           }
           EOF
 
+      - name: Pull latest code
+        run: |
+          git config --global user.email @${{ github.actor }}
+          git config --global user.name @${{ github.actor }}
+          git remote add upstream https://github.com/f5devcentral/f5-hybrid-security-architectures.git
+          git fetch upstream
+          git merge upstream/main --strategy-option theirs --allow-unrelated-histories
+          
       - name: Terraform Init
         id: init
         run: terraform init
@@ -332,6 +364,15 @@ jobs:
           }
           EOF
           echo ${{secrets.NGINX_JWT}} | base64 -d > nginx-repo.jwt
+
+      - name: Pull latest code
+        run: |
+          git config --global user.email @${{ github.actor }}
+          git config --global user.name @${{ github.actor }}
+          git remote add upstream https://github.com/f5devcentral/f5-hybrid-security-architectures.git
+          git fetch upstream
+          git merge upstream/main --strategy-option theirs --allow-unrelated-histories
+          
       - name: Terraform Init
         id: init
         run: terraform init
@@ -405,6 +446,15 @@ jobs:
             }
           }
           EOF
+
+      - name: Pull latest code
+        run: |
+          git config --global user.email @${{ github.actor }}
+          git config --global user.name @${{ github.actor }}
+          git remote add upstream https://github.com/f5devcentral/f5-hybrid-security-architectures.git
+          git fetch upstream
+          git merge upstream/main --strategy-option theirs --allow-unrelated-histories
+          
       - name: Terraform Init
         id: init
         run: terraform init
