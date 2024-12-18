@@ -1,6 +1,5 @@
 name: "F5XC + BIG-IP CIS + NIC Apply"
 
-
 on:
   push:
     branches:
