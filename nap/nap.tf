@@ -12,7 +12,6 @@ resource "helm_release" "nginx-plus-ingress" {
       kubernetes_secret.docker-registry
     ]
 }
-
 resource "helm_release" "nginx-plus-ingresslink" {
   count = local.bigip_cis ? 1 : 0
     name = format("%s-nap-%s", local.project_prefix, local.build_suffix)
