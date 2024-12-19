@@ -33,14 +33,14 @@ jobs:
       # Deploy first hybrid use case
       - name: Trigger Deploy workflow1
         run: gh workflow run xc-bigip-apply.yml --ref deploy-xc-bigip
-        #if: github.event.schedule == '0 11 * * 3'
+        if: github.event.schedule == '0 11 * * 3'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
 
       # Destroy first hybrid use case
       - name: Trigger Destroy workflow1
         run: gh workflow run xc-bigip-destroy.yml --ref destroy-xc-bigip
-        if: github.event.schedule == '0 12 * * 3'
+        if: github.event.schedule == '0 4 * * 4'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
